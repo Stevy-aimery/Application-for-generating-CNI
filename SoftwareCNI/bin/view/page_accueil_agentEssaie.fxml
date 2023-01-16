@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerAccueil_agent">
+   <children>
+      <ImageView fitHeight="65.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <image>
+            <Image url="@../issets/SceauRepublique.jpeg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="599.2000122070312" text="Liste des demandes en cours de Traitement" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" prefWidth="200.0" spacing="10.0">
+         <children>
+            <TextField fx:id="nameTextField" promptText="N°Demandes">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></TextField>
+            <Button fx:id="BtnTraitmnt" mnemonicParsing="false" onAction="#TraitmntBtn" text="Traitement">
+               <font>
+                  <Font name="Times New Roman Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="BtnActu" mnemonicParsing="false" onAction="#ActuDataBtn" text="Actualiser">
+               <font>
+                  <Font name="Times New Roman Bold" size="12.0" />
+               </font></Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
