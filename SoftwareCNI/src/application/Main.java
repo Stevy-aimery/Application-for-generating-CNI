@@ -13,12 +13,13 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-
-			Parent root = FXMLLoader.load(getClass().getResource("../view/authentif_Agent2.fxml"));
 //			Parent root = FXMLLoader.load(getClass().getResource("../view/authentif_Agent.fxml"));
-//			Parent root = FXMLLoader.load(getClass().getResource("../view/authentif_demandeur.fxml"));
-			Scene scene = new Scene(root,550,450);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			
+//			Parent root = FXMLLoader.load(getClass().getResource("../view/page_accueil_agent.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("../view/page_accueilDemandeur.fxml"));			
+
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("../Mycss/style.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

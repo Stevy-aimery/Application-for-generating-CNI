@@ -8,14 +8,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import connexion.loginDB;
-
+import dataBase.loginDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 
@@ -27,11 +30,11 @@ public class ConnexionControllerAgent implements Initializable {
 	@FXML private Label labeEtatCon;
 	
 	
-	@FXML
-	// Methode pour les buttons
+	 @FXML
+	// Methode for action button
 	public void login(ActionEvent event) throws SQLException {
-		
-		// Lier the actions of laClass Connection à la BD		
+		 
+		// Lier the actions of laClass Connection à la DB		
 		Connection con = loginDB.connect();
 		
 		//Objects pour gerer la connexion
@@ -50,10 +53,34 @@ public class ConnexionControllerAgent implements Initializable {
 			res = stat.executeQuery();
 			//Affichage de l etat de connexion
 			if(res.next()) {
-				labeEtatCon.setText("Connexion reussit.");
+				try {					
+					
+					Parent root = FXMLLoader.load(getClass().getResource("../view/page_accueil_agent.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.show();
+					
+					
+					
+					}catch (Exception e) {
+						// TODO: handle exception
+						e.printStackTrace();
+					}	
+
+				finally {
+					Parent root = FXMLLoader.load(getClass().getResource("../view/authentif_Agent.fxml"));
+					Scene scene = new Scene(root);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.hide();
+					
+				}
+				
+				
 			}else {
 				labeEtatCon.setText("Le code agent ou le mot de passe ne correspond pas.");
-				labeEtatCon.setText("Echec de la connexion.");
+//				labeEtatCon.setText("Echec de la connexion.");
 			}
 			
 			
@@ -61,6 +88,8 @@ public class ConnexionControllerAgent implements Initializable {
 			// TODO: handle exception
 		}
 	}
+		
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

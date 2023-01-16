@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -9,27 +10,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="archorpane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConnexionControllerDemandeur">
+<AnchorPane fx:id="archorpane" prefHeight="498.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConnexionControllerDemandeur">
    <children>
-      <Button fx:id="btnConn" layoutX="114.0" layoutY="324.0" mnemonicParsing="false" onAction="#loginDemandeur" prefHeight="44.0" prefWidth="139.0" style="-fx-background-color: #1E90FF; -fx-cursor: pointer;" text="Connexion" textFill="WHITE">
+      <Button fx:id="btnConn" layoutX="185.0" layoutY="339.0" mnemonicParsing="false" onAction="#loginDemandeur" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: #1E90FF; -fx-cursor: pointer;" text="Connexion" textFill="WHITE">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="26.0" prefHeight="51.0" prefWidth="312.0" text="SUIVI DE LA DEMANDE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="97.0" layoutY="26.0" prefHeight="51.0" prefWidth="312.0" text="SUIVI DE LA DEMANDE">
          <font>
             <Font name="Candara Bold" size="23.0" />
          </font>
       </Label>
       <Label layoutX="25.0" layoutY="445.0" text="Etat de connexion :" />
-      <Label fx:id="labeEtatCon" layoutX="148.0" layoutY="409.0" prefHeight="17.0" prefWidth="218.0" />
-      <PasswordField fx:id="numDemand" alignment="CENTER" layoutX="25.0" layoutY="251.0" prefHeight="44.0" prefWidth="312.0" promptText="N°  de la demande" style="-fx-border-color: #1E90FF; -fx-border-width: 0 0 3px 0;">
+      <Label fx:id="labeEtatCon" layoutX="144.0" layoutY="439.0" prefHeight="29.0" prefWidth="329.0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <PasswordField fx:id="numDemand" alignment="CENTER" layoutX="84.0" layoutY="251.0" prefHeight="44.0" prefWidth="350.0" promptText="N°  de la demande" style="-fx-border-color: #1E90FF; -fx-border-width: 0 0 3px 0;">
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font></PasswordField>
-      <ImageView fx:id="imageSceauRepub" fitHeight="126.0" fitWidth="264.0" layoutX="93.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageSceauRepub" fitHeight="126.0" fitWidth="264.0" layoutX="161.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
          
-            <Image url="@../issets/SceauRepublique.jpeg" />
+            <Image url="@../MyAssets/SceauRepublique.jpeg" />
       </ImageView>
    </children>
    <padding>
