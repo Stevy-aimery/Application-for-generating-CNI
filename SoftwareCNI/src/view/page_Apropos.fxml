@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane accessibleRole="TEXT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1360.0" style="-fx-background-color: tr;" styleClass="root" stylesheets="@../Mycss/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PageAproposContoller">
+   <children>
+      <ImageView fitHeight="116.0" fitWidth="114.0" layoutX="6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../MyAssets/OIP-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <MenuBar layoutX="-4.0" layoutY="109.0" prefHeight="24.0" prefWidth="1364.0" style="-fx-background-color: #008080;" />
+      <Button alignment="CENTER" layoutX="223.0" layoutY="47.0" mnemonicParsing="false" onAction="#BtnApropos" prefHeight="32.0" prefWidth="135.0" style="-fx-background-color: tr; -fx-text-fill: #008080;" text="À propos">
+         <font>
+            <Font name="SansSerif Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="403.0" layoutY="47.0" mnemonicParsing="false" onAction="#BtnAccueil" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: tr; -fx-text-fill: #008080;" text="Accueil">
+         <font>
+            <Font name="SansSerif Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1095.0" layoutY="40.0" mnemonicParsing="false" onAction="#BtnConnexion" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: tr; -fx-text-fill: #008080;" text="Connexion">
+         <font>
+            <Font name="SansSerif Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="931.0" layoutY="47.0" mnemonicParsing="false" onAction="#ButtonFAQ" prefHeight="32.0" prefWidth="86.0" style="-fx-text-fill: #008080; -fx-background-color: tr;" text="F.A.Q">
+         <font>
+            <Font name="SansSerif Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <MenuButton fx:id="menuBTN" alignment="CENTER" contentDisplay="CENTER" layoutX="642.0" layoutY="47.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: tr;" styleClass="ClassMenuBTN" text="Services" textAlignment="JUSTIFY" textFill="TEAL">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#BtnCreateOfDemande" style="-fx-text-fill: #008080; -fx-font-familly: Serif; -fx-font-size: 17px; -fx-font-weigh: bolder;" text="Créer votre demande" />
+          <MenuItem mnemonicParsing="false" onAction="#BtnSuivreOrModifDemande" style="-fx-text-fill: #008080; -fx-font-size: 17px; -fx-font-weigh: Bolder;" text="Suivre ou modifier votre demande" />
+        </items>
+         <font>
+            <Font name="SansSerif Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </MenuButton>
+      <ImageView fitHeight="42.0" fitWidth="34.0" layoutX="206.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../MyAssets/icons8-proactivité-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="409.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../MyAssets/icons8-accueil-24.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="57.0" layoutX="623.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../MyAssets/icons8-service-50-2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="907.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../MyAssets/icons8-aide-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="32.0" layoutX="1069.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../MyAssets/icons8-connexion-50-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Text fill="#287e80" fontSmoothingType="LCD" layoutX="569.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LA NOUVELLE CNI" textAlignment="JUSTIFY" wrappingWidth="239.47003173828125">
+         <font>
+            <Font name="Times New Roman Bold" size="22.0" />
+         </font></Text>
+      <ProgressBar layoutX="164.0" layoutY="284.0" prefHeight="3.0" prefWidth="1020.0" progress="0.0" />
+      <Text layoutX="336.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Un titre identitaire renforcé pour une meilleure qualité au service du citoyen" textAlignment="JUSTIFY" wrappingWidth="713.5">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
+         </font>
+      </Text>
+      <Text fill="#07362b" layoutX="197.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Le fondement juridique de la CNI:" wrappingWidth="350.13671875">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextFlow layoutX="193.0" layoutY="360.0" lineSpacing="2.0" prefHeight="111.0" prefWidth="964.0" textAlignment="JUSTIFY">
+         <children>
+            <Text lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="la Carte Nationale d’Identité Electronique certifie la nationalité et l’identité de son titulaire, y compris son identité numérique, en lui attribuant un numéro national d'identité unique. Elle revêt un caractère régalien qui prouve l'identité du citoyen d'une manière unique, le protégeant ainsi contre tout risque de confusion voulue ou accidentelle des identités. La CNI est régie par le Loi n° 1.20.80/11 du 28 Novembre 1990 " textAlignment="JUSTIFY" wrappingWidth="930.0">
+               <font>
+                  <Font name="Californian FB" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </TextFlow>
+      <Text fill="#07362b" layoutX="194.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les avantages de la nouvelle CNI :" wrappingWidth="344.13671875">
+         <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+         </font>
+      </Text>
+      <Circle fill="DODGERBLUE" layoutX="207.0" layoutY="634.0" radius="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="225.0" layoutY="515.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La durabilité : le choix du matériaux, entièrement en polycarbonate, apporte à la CNI plus de résistance et de durabilité." textAlignment="JUSTIFY" wrappingWidth="924.803466796875">
+         <font>
+            <Font name="Californian FB" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="223.0" layoutY="579.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="La sécurité : le renforcement du niveau de sécurité physique et logique de la CNI protège son porteur contre les risques de contrefaçon et de falsification" textAlignment="JUSTIFY" wrappingWidth="928.13671875">
+         <font>
+            <Font name="Californian FB" size="20.0" />
+         </font>
+      </Text>
+      <Circle fill="DODGERBLUE" layoutX="208.0" layoutY="506.0" radius="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="DODGERBLUE" layoutX="206.0" layoutY="584.0" radius="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="217.0" layoutY="634.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="L’authentification forte : La CNI comporte des certificats numériques liés à la carte et à son titulaire de manière univoque. Le citoyen dispose d’un code PIN qui lui permet un premier niveau d'authentification électronique sécurisée, afin de prouver son identité." textAlignment="JUSTIFY" wrappingWidth="932.8033447265625">
+         <font>
+            <Font name="Californian FB" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="73.0" fitWidth="121.0" layoutX="1245.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../MyAssets/SceauRepublique.jpeg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

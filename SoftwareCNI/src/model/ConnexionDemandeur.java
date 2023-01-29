@@ -1,80 +1,57 @@
 package model;
 
-
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
-import dataBase.loginDB;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import dataBase.loginDB_like_HMI;
+
 import javafx.scene.control.PasswordField;
-import javafx.scene.image.ImageView;
-//import javafx.scene.layout.AnchorPane;
 
-public class ConnexionDemandeur implements Initializable {
-
-	@FXML
-    private ImageView imageSceauRepub;
+/**
+ * ConnexionDemandeur Returns the status of the connection to BD
+ * @author StevyKabalera
+ *
+ */
+public class ConnexionDemandeur {	
+ 
+	/**
+	* SeconnecterDemandeur Verifies that the connection to the DB is made or not
+	* @param passwordF;
+	* @return the connection status true when it's good and false otherwise
+	*/
 	
-    @FXML
-    private Label labeEtatCon;    
-    @FXML
-    private PasswordField numDemand;
-    
-    /* 
-     * @FXML
-   private AnchorPane archorpane;
-   
-    */
 
-    @FXML
-    private Button btnConn;
-   
-
-	    // Method pour l'action sur le bouton the button
-	@FXML 
-	public void loginDemandeur (ActionEvent event) throws SQLException {
+	public boolean SeconnecterDemandeur(PasswordField passwordF) {
 		
-			// lier les actions de la Class de la connexion à la BD
-			Connection con = loginDB.connect();
-			
-			//Objects pour gerer la connexion
-			PreparedStatement stat = null;
-			ResultSet res = null;
-			
-			String sql = "SELECT * FROM user_demandeur WHERE N°Demande =?";			
-			try {
-				stat = con.prepareStatement(sql);				
-				stat.setString(1, numDemand.getText().toString());
-				
-				// execution de la requette (Query)
-				res = stat.executeQuery();
-				
-				//Affichage Etat de connexion
-				if(res.next()) {
-					labeEtatCon.setText("Connexion reussit.");
-				}else {
-					labeEtatCon.setText("Le code agent ou le mot de passe ne correspond pas.");
-				}
-				
-				
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
+		
+				// Lier the actions of laClass Connection à la DB		
+					Connection conn = loginDB_like_HMI.dbConnect();
+					
+					//Objects pour gerer la connexion
+					PreparedStatement stat = null;
+					ResultSet res = null;
+					
+					//Requette de la connection		
+					String sql = "SELECT * FROM user_demandeur WHERE Num_demande =?";					
+									
+					// execution de la Query
+					try {
+						stat = conn.prepareStatement(sql);
+						stat.setString(1, passwordF.getText());
+						res = stat.executeQuery();
+						if(res.next()) {
+							return true;
+						}
 
-}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					return false;
+					
 		
 	}
-	
 }
