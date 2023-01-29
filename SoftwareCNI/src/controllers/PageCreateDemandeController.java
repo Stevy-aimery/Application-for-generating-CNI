@@ -183,25 +183,27 @@ public class PageCreateDemandeController {
        
 
     // Pattern pour valider le nom
-    private static final Pattern Nomp = Pattern.compile("^[a-zA-z\\s]+$");
-    private static final Pattern Prenomp = Pattern.compile("^[A-Za-z\\s]+$");
+    private static final Pattern Nomp = Pattern.compile("^[A-Za-z\\p{L} \\s]+$");
+    private static final Pattern Prenomp = Pattern.compile("^[A-Za-z\\p{L} \\s]+$");
     //private static final Pattern Datep = Pattern.compile("^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$");
-    private static final Pattern Lieup = Pattern.compile("^[a-zA-z\\s]+$");
-    private static final Pattern Provincep = Pattern.compile("^[a-zA-z\\s]+$");
-    private static final Pattern Professionp = Pattern.compile("^[a-zA-z\\s]+$");
-    private static final Pattern Nationalitep = Pattern.compile("^[a-zA-z\\s]+$");
+    private static final Pattern Lieup = Pattern.compile("^[A-Za-z\\p{L} \\s]+$");
+    private static final Pattern Provincep = Pattern.compile("^[A-Za-z\\p{L} \\s]+$");
+    private static final Pattern Professionp = Pattern.compile("^[A-Za-z\\p{L} \\s]+$");
+    private static final Pattern Nationalitep = Pattern.compile("^[a-zA-Z \\p{L} \\s]+$");
     private static final Pattern Telp = Pattern.compile("^(\\+\\d{1,3}[- ]?)?\\d{10,15}$"); 
     //  ^[0][0-9]{9}$   ^(\\+\\d{1,3}[- ]?)?\\d{10,15}$  ^(\+\d{1,3}[- ]?)?\d{10,14}$
     private static final Pattern Mailp = Pattern.compile("^[a-z0-9._%+-]+\\@[a-z0-9.-]+\\.[a-z]{2,4}$");
-    private static final Pattern Paysp = Pattern.compile("^[a-zA-z\\s]+$"); 
+    private static final Pattern Paysp = Pattern.compile("^[A-Za-z\\p{L} \\s]+$"); 
     //private static final Pattern Oldcartep = Pattern.compile("^RG[0-9]{4}$");
-    private static final Pattern Adressep = Pattern.compile("^[a-zA-z\\s]+$");
+    private static final Pattern Adressep = Pattern.compile("^[A-Za-z0-9 \\p{L} \\s]*$");
     
                 
      @FXML
      public void initialize() {
      addAutoValidation();
      
+     
+     //ajout des items au sein des combobox
      civilite.getItems().addAll("Monsieur", "Mademoiselle", "Madame");
      addAutoValidation();
      
@@ -213,16 +215,19 @@ public class PageCreateDemandeController {
      }
                 
      private void addAutoValidation() {
-    	// Ajoutez la validation automatique pour chaque champ de saisi
     	 
+    	 
+    	// Ajoutez la validation automatique pour chaque champ de saisi
     	 date.valueProperty().addListener((obs, oldVal, newVal) -> {
      	    if (newVal != null) {
      	        date.setStyle("-fx-border-color: null;");
+     	       nom.setPromptText("Entrer une date valide");
      	    }
      	});
     	 jour.valueProperty().addListener((obs, oldVal, newVal) -> {
      	    if (newVal != null) {
      	        jour.setStyle("-fx-border-color: null;");
+     	       jour.setPromptText("Entrer une date valide");
      	    }
      	});
     	 
@@ -341,16 +346,7 @@ public class PageCreateDemandeController {
          }
      });
      
-     nom.focusedProperty().addListener((arg0, oldValue, newValue) -> {
-         if (!newValue) {
-             if (!Nomp.matcher(nom.getText()).matches()) {
-                 nom.setStyle("-fx-border-color: red;");
-                 nom.setPromptText("Entrer un nom valide");
-             } else {
-                 nom.setStyle("-fx-border-color: green;");
-             }
-         }
-     });
+     
     
    //  oldcarte.focusedProperty().addListener((arg0, oldValue, newValue) -> {
       //   if (!newValue) {
@@ -404,6 +400,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Nom.isEmpty() || !Nomp.matcher(Nom).matches()) {
             // Souligner le champ de nom en rouge
             nom.setStyle("-fx-border-color: red;");
+            nom.setPromptText("Entrer un nom valide");
             isNomValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -414,6 +411,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Prenom.isEmpty() || !Prenomp.matcher(Prenom).matches()) {
             // Souligner le champ de nom en rouge
         	prenom.setStyle("-fx-border-color: red;");
+        	prenom.setPromptText("Entrer un prenom valide");
         	isPrenomValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -425,6 +423,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Lieu.isEmpty() || !Lieup.matcher(Lieu).matches()) {
             // Souligner le champ de nom en rouge
             lieu.setStyle("-fx-border-color: red;");
+            lieu.setPromptText("Entrer un lieu valide");
             isLieuValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -433,6 +432,7 @@ void BtnEnregistrer(ActionEvent event) {
         // valider la Date
         if (Date == null) {
         	date.setStyle("-fx-border-color: red;");
+        	date.setPromptText("Entrer une date valide");
           	isDateValid = false;
         }else {
         	date.setStyle("");
@@ -441,6 +441,7 @@ void BtnEnregistrer(ActionEvent event) {
      // valider la jour
         if (Jour == null) {
         	jour.setStyle("-fx-border-color: red;");
+        	jour.setPromptText("Entrer une date valide");
           	isJourValid = false;
         }else {
         	jour.setStyle("");
@@ -451,6 +452,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Profession.isEmpty() || !Professionp.matcher(Profession).matches()) {
             // Souligner le champ de nom en rouge
             profession.setStyle("-fx-border-color: red;");
+            profession.setPromptText("Entrer une profession valide");
             isProfessionValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -461,6 +463,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Province.isEmpty() || !Provincep.matcher(Province).matches()) {
             // Souligner le champ de nom en rouge
             province.setStyle("-fx-border-color: red;");
+            province.setPromptText("Entrer une province valide");
             isProvinceValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -471,6 +474,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Telephone.isEmpty() || !Telp.matcher(Telephone).matches()) {
             // Souligner le champ de nom en rouge
             tel.setStyle("-fx-border-color: red;");
+            tel.setPromptText("Entrer un telephone valide");
             isTelValid = false;
         } else {
         	        // Retirer le soulignement rouge
@@ -484,6 +488,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Mail.isEmpty() || !Mailp.matcher(Mail).matches()) {
             // Souligner le champ de nom en rouge
             mail.setStyle("-fx-border-color: red;");
+            mail.setPromptText("Entrer un mail valide");
             isMailValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -494,6 +499,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Adresse.isEmpty() || !Adressep.matcher(Adresse).matches()) {
             // Souligner le champ de nom en rouge
             adresse.setStyle("-fx-border-color: red;");
+            adresse.setPromptText("Entrer une adresse valide");
             isAdresseValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -504,6 +510,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Pays.isEmpty() || !Paysp.matcher(Pays).matches()) {
             // Souligner le champ de nom en rouge
             pays.setStyle("-fx-border-color: red;"); 
+            pays.setPromptText("Entrer un pays valide");
             isPaysValid = false;
         } else {
             // Retirer le soulignement rouge
@@ -514,6 +521,7 @@ void BtnEnregistrer(ActionEvent event) {
         if (Nationalite.isEmpty() || !Nationalitep.matcher(Nationalite).matches()) {
             // Souligner le champ de nom en rouge
             nationalite.setStyle("-fx-border-color: red;");
+            nationalite.setPromptText("Entrer un nationalite valide");
             isNationaliteValid = false;
         } else {
             // Retirer le soulignement rouge

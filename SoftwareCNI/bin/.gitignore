@@ -1,7 +1,9 @@
+/.classpath
+/.idea/
+/.project
+/.settings/
+/build.fxbuild
+/doc/
+/image For README/
 /controllers/
-/model/
 /view/
-/MyAssets/
-/Mycss/
-/application/
-/dataBase/

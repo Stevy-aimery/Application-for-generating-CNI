@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -22,6 +24,16 @@ import javafx.stage.StageStyle;
  *
  */
 public class PageAccueilCNIcontroller implements Initializable {
+	
+	
+		@FXML
+		private ImageView renouvelle;
+		
+		@FXML
+		private ImageView image;
+		
+		@FXML
+		private ImageView timbre;
 	
 	 	@FXML
 	    private Button Accueil;
@@ -202,6 +214,60 @@ public class PageAccueilCNIcontroller implements Initializable {
 	    public void BtnAccueil(ActionEvent event) { 
 	    	try {
 				Parent root = FXMLLoader.load(getClass().getResource("../view/#"));	
+				Scene sceneA = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(sceneA);
+				stage.show();	
+				
+				Stage stageActuel  = (Stage)((Node) event.getSource()).getScene().getWindow();
+	    		stageActuel.close();
+				
+				}catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+	    }
+	    
+	    @FXML
+	    void btnt(MouseEvent event) { 
+	    	try {
+				Parent root = FXMLLoader.load(getClass().getResource("../view/page_Apropos.fxml"));	
+				Scene sceneA = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(sceneA);
+				stage.show();	
+				
+				Stage stageActuel  = (Stage)((Node) event.getSource()).getScene().getWindow();
+	    		stageActuel.close();
+				
+				}catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+	    }
+	    
+	    @FXML
+	    void btnr(MouseEvent event) { 
+	    	try {
+				Parent root = FXMLLoader.load(getClass().getResource("../view/page_Apropos.fxml"));	
+				Scene sceneA = new Scene(root);
+				Stage stage = new Stage();
+				stage.setScene(sceneA);
+				stage.show();	
+				
+				Stage stageActuel  = (Stage)((Node) event.getSource()).getScene().getWindow();
+	    		stageActuel.close();
+				
+				}catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+	    }
+	    
+	    @FXML
+	    void btnimage(MouseEvent event) { 
+	    	try {
+				Parent root = FXMLLoader.load(getClass().getResource("../view/page_Apropos.fxml"));	
 				Scene sceneA = new Scene(root);
 				Stage stage = new Stage();
 				stage.setScene(sceneA);

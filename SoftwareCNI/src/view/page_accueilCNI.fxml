@@ -75,21 +75,31 @@
          <image>
             <Image url="@../MyAssets/CNI%20Photo%20Gabao.jpeg" />
          </image>
+        
       </ImageView>
-      <ImageView id="image" fitHeight="160.0" fitWidth="168.0" layoutX="120.0" layoutY="444.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="image" fitHeight="160.0" fitWidth="168.0" layoutX="120.0" layoutY="444.0" onMouseClicked="#btnimage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../MyAssets/nouvelle%20carte_fr.png" />
          </image>
+           <cursor>
+         <Cursor fx:constant="HAND"/>
+         </cursor>
       </ImageView>
-      <ImageView id="renouvelle" fitHeight="154.0" fitWidth="140.0" layoutX="525.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="renouvelle" fitHeight="154.0" fitWidth="140.0" layoutX="525.0" layoutY="436.0" onMouseClicked="#btnr" pickOnBounds="true" preserveRatio="true" >
          <image>
             <Image url="@../MyAssets/renouvelement%20icone_fr.png" />
          </image>
+         <cursor>
+         <Cursor fx:constant="HAND"/>
+         </cursor>
       </ImageView>
-      <ImageView id="timbre" fitHeight="163.0" fitWidth="148.0" layoutX="314.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="timbre" fitHeight="163.0" fitWidth="148.0" layoutX="314.0" layoutY="554.0" onMouseClicked="#btnt" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../MyAssets/timbre%20icon%203_fr.png" />
          </image>
+          <cursor>
+         <Cursor fx:constant="HAND"/>
+         </cursor>
       </ImageView>
       <Button fx:id="FAQ" alignment="CENTER" layoutX="895.0" layoutY="46.0" mnemonicParsing="false" onAction="#BtnFAQ" prefHeight="32.0" prefWidth="85.0" style="-fx-text-fill: #008080; -fx-background-color: tr;" text="F.A.Q">
          <font>
